@@ -266,18 +266,44 @@ export default function Page() {
 
       {/* About */}
       <Section id="about" title="About">
-        <motion.div variants={fade} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid md:grid-cols-3 gap-6">
-          <Card className="rounded-2xl md:col-span-2">
+        <motion.div
+          variants={fade}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-6"
+        >
+          {/* 1) Profile photo */}
+          <Card className="rounded-2xl flex items-center justify-center p-6">
+            <img
+              src="/docs/obayley_photo.jpeg"       // <- change path if needed
+              alt="Olly Bayley"
+              loading="eager"
+              decoding="async"
+              className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48
+                        rounded-full object-cover border
+                        border-neutral-300 dark:border-neutral-700"
+            />
+          </Card>
+
+          {/* 2) About text */}
+          <Card className="rounded-2xl">
             <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-base"><MapPin className="w-4 h-4" /> Currently based in {DATA.location}</CardTitle>
+              <CardTitle className="flex items-center gap-2 text-base">
+                <MapPin className="w-4 h-4" /> Currently based in {DATA.location}
+              </CardTitle>
             </CardHeader>
             <CardContent className="text-sm opacity-90">
               {DATA.about}
             </CardContent>
           </Card>
+
+          {/* 3) Highlights */}
           <Card className="rounded-2xl">
             <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-base"><Award className="w-4 h-4" /> Highlights</CardTitle>
+              <CardTitle className="flex items-center gap-2 text-base">
+                <Award className="w-4 h-4" /> Highlights
+              </CardTitle>
             </CardHeader>
             <CardContent className="text-sm opacity-90 space-y-2">
               <div>• Post-Doc - Primary maintainer for the <span className="font-mono">RoboChem</span> repo of the NRG.</div>
