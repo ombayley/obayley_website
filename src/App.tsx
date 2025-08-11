@@ -264,30 +264,26 @@ export default function Page() {
         {/* <div aria-hidden className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full blur-3xl opacity-20 bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-500" /> */}
       </header>
 
-      {/* About */}
       <Section id="about" title="About">
         <motion.div
           variants={fade}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6"
+          className="grid gap-6 md:grid-cols-12"
         >
-          {/* 1) Profile photo */}
-          <Card className="rounded-2xl flex items-center justify-center p-6">
+          {/* Photo (narrow) */}
+          <div className="md:col-span-2 lg:col-span-3 flex items-center justify-center p-6 md:p-4">
             <img
-              src="/docs/obayley_photo.jpeg"       // <- change path if needed
+              src="/docs/obayley_photo.jpeg"
               alt="Olly Bayley"
-              loading="eager"
-              decoding="async"
-              className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48
-                        rounded-full object-cover border
-                        border-neutral-300 dark:border-neutral-700"
+              className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover
+                        border border-neutral-300 dark:border-neutral-700"
             />
-          </Card>
+          </div>
 
-          {/* 2) About text */}
-          <Card className="rounded-2xl">
+          {/* About (wider) */}
+          <Card className="rounded-2xl md:col-span-6 lg:col-span-5">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-base">
                 <MapPin className="w-4 h-4" /> Currently based in {DATA.location}
@@ -298,8 +294,8 @@ export default function Page() {
             </CardContent>
           </Card>
 
-          {/* 3) Highlights */}
-          <Card className="rounded-2xl">
+          {/* Highlights (side) */}
+          <Card className="rounded-2xl md:col-span-4">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-base">
                 <Award className="w-4 h-4" /> Highlights
@@ -307,7 +303,7 @@ export default function Page() {
             </CardHeader>
             <CardContent className="text-sm opacity-90 space-y-2">
               <div>• Post-Doc - Primary maintainer for the <span className="font-mono">RoboChem</span> repo of the NRG.</div>
-              <div>• PhD - Best presentation @ 4/4 confrences (National and International).</div>
+              <div>• PhD - Best presentation @ 4/4 conferences (National and International).</div>
               <div>• Masters - Graduated with highest GPA in the history of the course.</div>
             </CardContent>
           </Card>
