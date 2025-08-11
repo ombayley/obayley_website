@@ -328,7 +328,14 @@ export default function Page() {
                   <div className="font-medium">{study.program} · {study.school}</div>
                 </div>
                 <div className="flex items-center gap-2 text-sm opacity-70">
-                  <Calendar className="w-4 h-4" /> {study.period}
+                  <span className="inline-flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    {study.period}
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    <MapPin className="w-4 h-4" />
+                    {study.location}
+                  </span>
                 </div>
               </div>
               <p className="mt-2 text-sm opacity-90">{study.summary}</p>
@@ -359,7 +366,16 @@ export default function Page() {
                   <Briefcase className="w-4 h-4" />
                   <div className="font-medium">{job.role} · {job.company}</div>
                 </div>
-                <div className="flex items-center gap-2 text-sm opacity-70"><Calendar className="w-4 h-4" /> {job.period}</div>
+                <div className="flex items-center gap-2 text-sm opacity-70"><Calendar className="w-4 h-4" /> 
+                  <span className="inline-flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    {job.period}
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    <MapPin className="w-4 h-4" />
+                    {job.location}
+                  </span>
+                </div>
               </div>
               <p className="mt-2 text-sm opacity-90">{job.summary}</p>
               <ul className="mt-3 grid sm:grid-cols-2 gap-2 text-sm">
