@@ -171,12 +171,28 @@ export default function Page() {
   const [dark, setDark] = useState(true);
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
+    document.title = "Olly Bayley — Organic Chemist • Backend Developer";
   }, [dark]);
 
   const year = useMemo(() => new Date().getFullYear(), []);
 
   return (
-    <div className="scroll-smooth antialiased bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    // <div className="scroll-smooth antialiased bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    <div className="relative min-h-screen text-neutral-900 dark:text-neutral-100 scroll-smooth antialiased">
+    {/* Fixed background layer */}
+    <div
+      aria-hidden
+      className="fixed inset-0 -z-10 bg-gradient-to-b
+                 from-white to-neutral-100
+                 dark:from-neutral-950 dark:to-neutral-950"
+    />
+
+    {/* Optional: move the decorative blob here so it stays fixed */}
+    <div
+      aria-hidden
+      className="fixed -top-24 right-0 h-72 w-72 rounded-full blur-3xl opacity-20
+                 bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-500 -z-10"
+    />
       {/* Sticky nav */}
       <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-neutral-950/60 border-b border-neutral-200/60 dark:border-neutral-800">
         <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -241,7 +257,7 @@ export default function Page() {
           </motion.div>
         </div>
         {/* Soft gradient backdrop */}
-        <div aria-hidden className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full blur-3xl opacity-20 bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-500" />
+        {/* <div aria-hidden className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full blur-3xl opacity-20 bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-500" /> */}
       </header>
 
       {/* About */}
