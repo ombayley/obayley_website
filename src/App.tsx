@@ -366,7 +366,7 @@ export default function Page() {
                   <Briefcase className="w-4 h-4" />
                   <div className="font-medium">{job.role} · {job.company}</div>
                 </div>
-                <div className="flex items-center gap-2 text-sm opacity-70"><Calendar className="w-4 h-4" /> 
+                <div className="flex items-center gap-2 text-sm opacity-70">
                   <span className="inline-flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {job.period}
