@@ -17,7 +17,9 @@ const DATA = {
   links: {
     github: "https://github.com/ombayley",
     linkedin: "https://www.linkedin.com/in/ollybayleynz/",
-    resume: "@/assets/obayley_cv.pdf",
+    resume: "docs/obayley_cv.pdf",
+    phdThesis: "/docs/obayley_phd_thesis.pdf",
+    mastersThesis: "/docs/obayley_masters_thesis.pdf",
   },
   blurb:
     "A Post-Doctoral Researcher at the University of Amsterdam (NRG) with a focus on chemical synthesis, hardware automation and autmoarted data analysis. ",
@@ -130,14 +132,16 @@ skills: [
       location: "Bristol, UK",
       program: "PhD, Chemistry",
       period: "Mar 2020 - Feb 2024",
-      summary: "Development of A New Class of Molecular Machine: Light-Fuelled Single-Bond Rotors"
+      summary: "Development of A New Class of Molecular Machine: Light-Fuelled Single-Bond Rotors",
+      file: "/docs/obayley_phd_thesis.pdf"
     },
     { 
       school: "Victoria University of Wellington",
       location: "Wellington, NZ",
       program: "Master of Drug Discovery and Development",
       period: " Feb 2018 - May 2019",
-      summary: "Synthesis of Novel Pyran Fragments to Incorporate into Peloruside Analogues"
+      summary: "Synthesis of Novel Pyran Fragments to Incorporate into Peloruside Analogues",
+      file: "/docs/obayley_masters_thesis.pdf"
     },
     { 
       school: "Victoria University of Wellington",
@@ -288,16 +292,35 @@ export default function Page() {
       <Section id="education" title="Education">
         <div className="space-y-6">
           {DATA.education.map((study, i) => (
-            <motion.div key={i} variants={fade} initial="hidden" whileInView="show" viewport={{ once: true }}
-              className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5">
+            <motion.div
+              key={i}
+              variants={fade}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5"
+            >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                 <div className="flex items-center gap-3">
                   <Briefcase className="w-4 h-4" />
                   <div className="font-medium">{study.program} · {study.school}</div>
                 </div>
-                <div className="flex items-center gap-2 text-sm opacity-70"><Calendar className="w-4 h-4" /> {study.period}</div>
+                <div className="flex items-center gap-2 text-sm opacity-70">
+                  <Calendar className="w-4 h-4" /> {study.period}
+                </div>
               </div>
               <p className="mt-2 text-sm opacity-90">{study.summary}</p>
+
+              {/* Show download button only if file is provided */}
+              {study.file && (
+                <div className="mt-4">
+                  <a href={study.file} download>
+                    <Button variant="outline" className="rounded-2xl">
+                      <Download className="w-4 h-4 mr-2" /> Download Thesis
+                    </Button>
+                  </a>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
